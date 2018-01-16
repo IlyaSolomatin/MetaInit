@@ -16,6 +16,6 @@ Now we have to calculate a metafeature representation of each dataset. This can 
 
 Now we have to run some ML algorithm at all these datasets on some grid of hyperparameters. Accuracies of an ML algorithm are calculated with 10-fold CV and written in corresponding .txt files.
 
-We can make these runs with **SVMOnGrid.py** or **CatboostOnGrid.py**. You can see the results of these runs in corresponding folders.
+We can make these runs with **SVMlinearRBF.py**, **SVMgammaC.py** or **CatboostOnGrid.py**. You already can see the results of these runs in corresponding folders. The first experiment runs SVM with one hyperparameter of two values: use LinearSVM with default settings *or* SVM with RBF kernel and default settings. The second one runs SVM with RBF kernel with two hyperparameters C and gamma of 399 values overall. The third one adjusts the maximal depth of the tree for Catboost choosing from 11 values.
 
 **Note**: Not all datasets were successfully utilized by these runs by different reasons. That's why after all we will work only with files which: have successfully extracted metafeatures *and* were successfully evaluated by an ML algorith on the whole grid of hyperparameters. Intersection of these two sets gives us 444 datasets. 
