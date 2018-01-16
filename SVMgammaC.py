@@ -1,6 +1,7 @@
 import pandas as pd
 import arff
 import copy
+from config import ALL_FILES
 from sklearn.svm import SVC
 from sklearn.model_selection import cross_val_score
 import numpy as np
@@ -8,16 +9,15 @@ import numpy as np
 np.random.seed(42)
 C_range = list(range(-5,16))
 gamma_range = list(range(-15,4))
-FILES = ['blood-transfusion-service-center.arff', 'bodyfat.arff',
-       'bolts.arff', 'boston.arff', 'boston_corrected.arff',
-       'braziltourism.arff', 'breast-w.arff', 'breast.arff',
-       'breastTumor.arff', 'bridges.arff', 'car.arff', 'cars.arff',
-       'CastMetal1.arff', 'chatfield_4.arff', 'cholesterol.arff',
-       'chscase_adopt.arff', 'chscase_census2.arff']
+FILES = ALL_FILES
 
 for file in FILES:
     f = open(file[:-5]+'.txt','w')
     data = arff.load(open('./data/'+file, 'r'))
+       
+    #This ugly block is here because in some datasets downloaded from OpenML the target column is not the last one.
+    #It forces to write a lot of exceptions like these to move the target column to the last place in order to
+    #process all the files in the same way with target column in behind.
     if file in ['prnn_crabs.arff','profb.arff','sleuth_ex2015.arff','sleuth_ex2016.arff','analcatdata_asbestos.arff',
                 'Australian.arff','dataset_106_molecular-biology_promoters.arff','dataset_114_shuttle-landing-control.arff',
                 'kdd_internet_usage.arff','molecular-biology_promoters.arff','monks-problems-1.arff','monks-problems-2.arff',
@@ -47,6 +47,7 @@ for file in FILES:
         del data['attributes'][7]
         data['data'] = np.hstack((np.array(data['data'])[:, list(range(7)) + list(range(8, len(data['data'][0])))],
                                   np.array(data['data'])[:, 1].reshape(-1, 1))).tolist()
+    #Here we understand which features are categorical and which are numerical
     categorical_cols = []
     numeric_cols = []
     for i in range(len(data['attributes'])):
@@ -54,7 +55,8 @@ for file in FILES:
             categorical_cols.append(i)
         elif i != len(data['attributes'])-1:
             numeric_cols.append(i)
-
+       
+    #Here we make one hot encoding of categorical features and normalize numerical features
     data = pd.DataFrame(data=data['data'],index=None)
     for categorical_col in categorical_cols:
         col = copy.deepcopy(data[categorical_col])
