@@ -1,0 +1,59 @@
+@relation chscase-health
+
+@attribute col_1 {Alabama,Alaska,Arizona,Arkansas,California,Colorado,Connecticut,Delaware,Florida,Georgia,Hawaii,Idaho,Illinois,Indiana,Iowa,Kansas,Kentucky,Louisiana,Maine,Maryland,Massachusetts,Michigan,Minnesota,Mississippi,Missouri,Montana,Nebraska,Nevada,New_Hampshire,New_Jersey,New_Mexico,New_York,North_Carolina,North_Dakota,Ohio,Oklahoma,Oregon,Pennslyvania,Rhode_Island,South_Carolina,South_Dakota,Tennessee,Texas,Utah,Vermont,Virginia,Washington,West_Virginia,Wisconsin,Wyoming}
+@attribute col_2 {_East_North_Central,_East_South_Central,_Middle_Atlantic,_Mountain,_North_East,_Pacific,_South_Atlantic,_West_North_Central,_West_South_Central}
+@attribute col_3 numeric
+@attribute col_4 numeric
+@attribute binaryClass {P,N}
+
+@data
+Alabama,_East_South_Central,5,1833,N
+Alaska,_Pacific,9,1801,P
+Arizona,_Mountain,8,1712,N
+Arkansas,_West_South_Central,6,1673,N
+California,_Pacific,9,1914,P
+Colorado,_Mountain,8,1807,P
+Connecticut,_North_East,1,2080,P
+Delaware,_South_Atlantic,3,2028,N
+Florida,_South_Atlantic,3,2037,N
+Georgia,_South_Atlantic,3,1884,N
+Hawaii,_Pacific,9,1889,P
+Idaho,_Mountain,8,1234,P
+Illinois,_East_North_Central,4,1840,P
+Indiana,_East_North_Central,4,1738,N
+Iowa,_West_North_Central,7,1657,P
+Kansas,_West_North_Central,7,1727,P
+Kentucky,_East_South_Central,5,1713,N
+Louisiana,_West_South_Central,6,1960,N
+Maine,_North_East,1,1592,P
+Maryland,_South_Atlantic,3,1918,P
+Massachusetts,_North_East,1,2402,N
+Michigan,_East_North_Central,4,1856,N
+Minnesota,_West_North_Central,7,1969,N
+Missouri,_West_North_Central,7,1983,N
+Mississippi,_East_South_Central,5,1440,N
+Montana,_Mountain,8,1440,P
+Nebraska,_West_North_Central,7,1754,P
+Nevada,_Mountain,8,1771,P
+New_Hampshire,_North_East,1,1735,P
+New_Jersey,_Middle_Atlantic,2,1887,P
+New_Mexico,_Mountain,8,1582,N
+New_York,_Middle_Atlantic,2,2134,P
+North_Carolina,_South_Atlantic,3,1631,P
+North_Dakota,_West_North_Central,7,2083,N
+Ohio,_East_North_Central,4,1859,N
+Oklahoma,_West_South_Central,6,1553,P
+Oregon,_Pacific,9,1573,P
+Pennslyvania,_Middle_Atlantic,2,2105,N
+Rhode_Island,_North_East,1,1916,P
+South_Carolina,_South_Atlantic,3,1558,N
+South_Dakota,_West_North_Central,7,1736,N
+Tennessee,_East_South_Central,5,2009,N
+Texas,_West_South_Central,6,1742,N
+Virginia,_South_Atlantic,3,1722,P
+Vermont,_North_East,1,1454,P
+Utah,_Mountain,8,1434,N
+Washington,_Pacific,9,1691,P
+Wisconsin,_East_North_Central,4,1762,P
+West_Virginia,_South_Atlantic,3,1832,N
+Wyoming,_Mountain,8,1301,P
