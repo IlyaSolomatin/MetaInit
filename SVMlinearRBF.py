@@ -1,39 +1,22 @@
 import pandas as pd
 import arff
 import copy
+from config import ALL_FILES
 from sklearn.svm import SVC, LinearSVC
 from sklearn.model_selection import cross_val_score
 import numpy as np
 
 np.random.seed(42)
-FILES = ['abalone.arff', 'acute-inflammations.arff', 'ada_agnostic.arff',
-       'ada_prior.arff', 'aids.arff', 'ailerons.arff',
-       'analcatdata_apnea1.arff', 'analcatdata_apnea2.arff',
-       'analcatdata_apnea3.arff', 'analcatdata_asbestos.arff',
-       'analcatdata_authorship.arff', 'analcatdata_bankruptcy.arff',
-       'analcatdata_birthday.arff', 'analcatdata_bondrate.arff',
-       'analcatdata_boxing1.arff', 'analcatdata_boxing2.arff',
-       'analcatdata_broadway.arff', 'analcatdata_broadwaymult.arff',
-       'analcatdata_challenger.arff', 'analcatdata_chlamydia.arff',
-       'analcatdata_creditscore.arff', 'analcatdata_cyyoung8092.arff',
-       'analcatdata_cyyoung9302.arff', 'analcatdata_dmft.arff',
-       'analcatdata_draft.arff', 'analcatdata_election2000.arff',
-       'analcatdata_fraud.arff', 'analcatdata_germangss.arff',
-       'analcatdata_gsssexsurvey.arff', 'analcatdata_gviolence.arff',
-       'analcatdata_halloffame.arff', 'analcatdata_impeach.arff',
-       'analcatdata_japansolvent.arff', 'analcatdata_lawsuit.arff',
-       'analcatdata_marketing.arff', 'analcatdata_michiganacc.arff',
-       'analcatdata_neavote.arff', 'analcatdata_negotiation.arff',
-       'analcatdata_olympic2000.arff', 'analcatdata_reviewer.arff',
-       'analcatdata_runshoes.arff', 'analcatdata_seropositive.arff',
-       'analcatdata_supreme.arff', 'analcatdata_uktrainacc.arff',
-       'analcatdata_vehicle.arff', 'analcatdata_vineyard.arff',
-       'analcatdata_whale.arff', 'analcatdata_wildcat.arff', 'anneal.arff',
-       'ar1.arff']
+#It is highly recommended to parallel this script by running it on different files at the same time
+FILES = ALL_FILES
 
 for file in FILES:
     f = open(file[:-5]+'.txt','w')
     data = arff.load(open('./data/'+file, 'r'))
+       
+    #This ugly block is here because in some datasets downloaded from OpenML the target column is not the last one.
+    #It forces to write a lot of exceptions like these to move the target column to the last place in order to
+    #process all the files in the same way with target column in behind.
     if file in ['prnn_crabs.arff','profb.arff','sleuth_ex2015.arff','sleuth_ex2016.arff','analcatdata_asbestos.arff',
                 'Australian.arff','dataset_106_molecular-biology_promoters.arff','dataset_114_shuttle-landing-control.arff',
                 'kdd_internet_usage.arff','molecular-biology_promoters.arff','monks-problems-1.arff','monks-problems-2.arff',
@@ -63,6 +46,8 @@ for file in FILES:
         del data['attributes'][7]
         data['data'] = np.hstack((np.array(data['data'])[:, list(range(7)) + list(range(8, len(data['data'][0])))],
                                   np.array(data['data'])[:, 1].reshape(-1, 1))).tolist()
+              
+    #Here we understand which features are categorical and which are numerical
     categorical_cols = []
     numeric_cols = []
     for i in range(len(data['attributes'])):
@@ -70,7 +55,8 @@ for file in FILES:
             categorical_cols.append(i)
         elif i != len(data['attributes'])-1:
             numeric_cols.append(i)
-
+       
+    #Here we make one hot encoding of categorical features and normalize numerical features
     data = pd.DataFrame(data=data['data'],index=None)
     for categorical_col in categorical_cols:
         col = copy.deepcopy(data[categorical_col])
