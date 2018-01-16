@@ -9,6 +9,7 @@ import numpy as np
 np.random.seed(42)
 C_range = list(range(-5,16))
 gamma_range = list(range(-15,4))
+#It is highly recommended to parallel this script by running it on different files at the same time
 FILES = ALL_FILES
 
 for file in FILES:
