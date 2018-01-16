@@ -1,0 +1,60 @@
+@relation witmer-Census_1980
+
+@attribute STATE {Alabama,Alaska,Arizona,Arkansas,California,Colorado,Connecticut,Delaware,Florida,Georgia,Hawaii,Idaho,Illinios,Indiana,Iowa,Kansas,Kentucky,Louisiana,Maine,Maryland,Massachusetts,Michigan,Minnesota,Mississippi,Missouri,Montana,Nebraska,Neveda,New_Hampshire,New_Jersey,New_Mexico,New_York,North_Carolina,North_Dakota,Ohio,Oklahoma,Oregon,Pennsylvania,Rhode_Island,South_Carolina,South_Dakota,Tennessee,Texas,Utah,Vermont,Virginia,Washington,West_Virginia,Wisconsin,Wyoming}
+@attribute OVER65Perc numeric
+@attribute MEDAGE numeric
+@attribute PERCAP$ numeric
+@attribute COLLEGEPerc numeric
+@attribute binaryClass {P,N}
+
+@data
+Maine,12.5,30.4,7756,14,N
+New_Hampshire,11.2,30.1,9217,18.4,N
+Vermont,11.4,29.4,7970,19.5,N
+Massachusetts,12.7,31.2,10096,20,N
+Rhode_Island,13.4,31.8,9200,15.3,P
+Connecticut,11.7,32,11559,21.2,N
+New_York,12.3,31.9,10242,18.7,P
+New_Jersey,11.7,32.2,10811,18.6,P
+Pennsylvania,12.9,32.1,9352,13.8,P
+Ohio,10.8,29.9,9401,14.8,P
+Indiana,10.7,29.2,8970,12.4,P
+Illinios,11,29.9,10448,14.5,P
+Michigan,9.8,28.8,9798,15.2,N
+Wisconsin,12,29.4,9361,14.9,N
+Minnesota,11.8,29.2,9662,16.7,N
+Iowa,13.3,30,9211,14.1,N
+Missouri,13.2,30.9,8856,14,P
+North_Dakota,12.3,28.3,8651,15.2,P
+South_Dakota,13.2,28.9,7815,14.2,N
+Nebraska,13.1,29.7,8887,16.1,N
+Kansas,13,30.1,9799,15.7,N
+Delaware,10,29.8,9949,16.3,N
+Maryland,9.4,30.3,10365,19.8,P
+Virginia,9.5,29.8,9446,19.2,P
+West_Virginia,12.2,30.4,7747,10.5,P
+North_Carolina,10.3,29.6,7774,13.4,P
+South_Carolina,9.2,28.1,7389,14.2,P
+Georgia,9.5,28.7,8041,15.3,P
+Florida,17.3,34.7,9245,14.7,P
+Kentucky,11.2,29.1,7644,11,P
+Tennessee,11.3,30.1,7689,11.9,P
+Alabama,11.3,29.3,7454,12.6,P
+Mississippi,11.5,27.7,6614,13,P
+Arkansas,13.7,30.6,7099,9.7,P
+Louisiana,9.6,27.4,8404,13.4,P
+Oklahoma,12.4,30.1,9029,15.7,P
+Texas,9.6,28.2,9439,16,P
+Montana,10.7,29,8334,17.3,N
+Idaho,9.9,27.6,8100,16.1,N
+Wyoming,7.9,27.1,11009,17.2,N
+Colorado,8.6,28.6,10147,23,N
+New_Mexico,8.9,27.4,7947,17.3,N
+Arizona,11.3,29.2,8855,16.8,N
+Utah,7.5,24.2,7679,20.3,N
+Neveda,8.2,30.2,10845,15.1,N
+Washington,10.4,29.8,10248,18.8,N
+Oregon,11.5,30.2,9319,17.2,N
+California,10.2,29.9,11020,19.8,N
+Alaska,2.9,26.1,13007,22.4,N
+Hawaii,7.9,28.4,10129,20.3,N

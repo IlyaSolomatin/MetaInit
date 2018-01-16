@@ -1,0 +1,123 @@
+@relation zoo
+
+@attribute animal {aardvark,antelope,bass,bear,boar,buffalo,calf,carp,catfish,cavy,cheetah,chicken,chub,clam,crab,crayfish,crow,deer,dogfish,dolphin,dove,duck,elephant,flamingo,flea,frog,fruitbat,giraffe,girl,gnat,goat,gorilla,gull,haddock,hamster,hare,hawk,herring,honeybee,housefly,kiwi,ladybird,lark,leopard,lion,lobster,lynx,mink,mole,mongoose,moth,newt,octopus,opossum,oryx,ostrich,parakeet,penguin,pheasant,pike,piranha,pitviper,platypus,polecat,pony,porpoise,puma,pussycat,raccoon,reindeer,rhea,scorpion,seahorse,seal,sealion,seasnake,seawasp,skimmer,skua,slowworm,slug,sole,sparrow,squirrel,starfish,stingray,swan,termite,toad,tortoise,tuatara,tuna,vampire,vole,vulture,wallaby,wasp,wolf,worm,wren}
+@attribute hair {false,true}
+@attribute feathers {false,true}
+@attribute eggs {false,true}
+@attribute milk {false,true}
+@attribute airborne {false,true}
+@attribute aquatic {false,true}
+@attribute predator {false,true}
+@attribute toothed {false,true}
+@attribute backbone {false,true}
+@attribute breathes {false,true}
+@attribute venomous {false,true}
+@attribute fins {false,true}
+@attribute legs numeric
+@attribute tail {false,true}
+@attribute domestic {false,true}
+@attribute catsize {false,true}
+@attribute binaryClass {P,N}
+
+@data
+aardvark,true,false,false,true,false,false,true,true,true,true,false,false,4,false,false,true,P
+antelope,true,false,false,true,false,false,false,true,true,true,false,false,4,true,false,true,P
+bass,false,false,true,false,false,true,true,true,true,false,false,true,0,true,false,false,N
+bear,true,false,false,true,false,false,true,true,true,true,false,false,4,false,false,true,P
+boar,true,false,false,true,false,false,true,true,true,true,false,false,4,true,false,true,P
+buffalo,true,false,false,true,false,false,false,true,true,true,false,false,4,true,false,true,P
+calf,true,false,false,true,false,false,false,true,true,true,false,false,4,true,true,true,P
+carp,false,false,true,false,false,true,false,true,true,false,false,true,0,true,true,false,N
+catfish,false,false,true,false,false,true,true,true,true,false,false,true,0,true,false,false,N
+cavy,true,false,false,true,false,false,false,true,true,true,false,false,4,false,true,false,P
+cheetah,true,false,false,true,false,false,true,true,true,true,false,false,4,true,false,true,P
+chicken,false,true,true,false,true,false,false,false,true,true,false,false,2,true,true,false,N
+chub,false,false,true,false,false,true,true,true,true,false,false,true,0,true,false,false,N
+clam,false,false,true,false,false,false,true,false,false,false,false,false,0,false,false,false,N
+crab,false,false,true,false,false,true,true,false,false,false,false,false,4,false,false,false,N
+crayfish,false,false,true,false,false,true,true,false,false,false,false,false,6,false,false,false,N
+crow,false,true,true,false,true,false,true,false,true,true,false,false,2,true,false,false,N
+deer,true,false,false,true,false,false,false,true,true,true,false,false,4,true,false,true,P
+dogfish,false,false,true,false,false,true,true,true,true,false,false,true,0,true,false,true,N
+dolphin,false,false,false,true,false,true,true,true,true,true,false,true,0,true,false,true,P
+dove,false,true,true,false,true,false,false,false,true,true,false,false,2,true,true,false,N
+duck,false,true,true,false,true,true,false,false,true,true,false,false,2,true,false,false,N
+elephant,true,false,false,true,false,false,false,true,true,true,false,false,4,true,false,true,P
+flamingo,false,true,true,false,true,false,false,false,true,true,false,false,2,true,false,true,N
+flea,false,false,true,false,false,false,false,false,false,true,false,false,6,false,false,false,N
+frog,false,false,true,false,false,true,true,true,true,true,false,false,4,false,false,false,N
+frog,false,false,true,false,false,true,true,true,true,true,true,false,4,false,false,false,N
+fruitbat,true,false,false,true,true,false,false,true,true,true,false,false,2,true,false,false,P
+giraffe,true,false,false,true,false,false,false,true,true,true,false,false,4,true,false,true,P
+girl,true,false,false,true,false,false,true,true,true,true,false,false,2,false,true,true,P
+gnat,false,false,true,false,true,false,false,false,false,true,false,false,6,false,false,false,N
+goat,true,false,false,true,false,false,false,true,true,true,false,false,4,true,true,true,P
+gorilla,true,false,false,true,false,false,false,true,true,true,false,false,2,false,false,true,P
+gull,false,true,true,false,true,true,true,false,true,true,false,false,2,true,false,false,N
+haddock,false,false,true,false,false,true,false,true,true,false,false,true,0,true,false,false,N
+hamster,true,false,false,true,false,false,false,true,true,true,false,false,4,true,true,false,P
+hare,true,false,false,true,false,false,false,true,true,true,false,false,4,true,false,false,P
+hawk,false,true,true,false,true,false,true,false,true,true,false,false,2,true,false,false,N
+herring,false,false,true,false,false,true,true,true,true,false,false,true,0,true,false,false,N
+honeybee,true,false,true,false,true,false,false,false,false,true,true,false,6,false,true,false,N
+housefly,true,false,true,false,true,false,false,false,false,true,false,false,6,false,false,false,N
+kiwi,false,true,true,false,false,false,true,false,true,true,false,false,2,true,false,false,N
+ladybird,false,false,true,false,true,false,true,false,false,true,false,false,6,false,false,false,N
+lark,false,true,true,false,true,false,false,false,true,true,false,false,2,true,false,false,N
+leopard,true,false,false,true,false,false,true,true,true,true,false,false,4,true,false,true,P
+lion,true,false,false,true,false,false,true,true,true,true,false,false,4,true,false,true,P
+lobster,false,false,true,false,false,true,true,false,false,false,false,false,6,false,false,false,N
+lynx,true,false,false,true,false,false,true,true,true,true,false,false,4,true,false,true,P
+mink,true,false,false,true,false,true,true,true,true,true,false,false,4,true,false,true,P
+mole,true,false,false,true,false,false,true,true,true,true,false,false,4,true,false,false,P
+mongoose,true,false,false,true,false,false,true,true,true,true,false,false,4,true,false,true,P
+moth,true,false,true,false,true,false,false,false,false,true,false,false,6,false,false,false,N
+newt,false,false,true,false,false,true,true,true,true,true,false,false,4,true,false,false,N
+octopus,false,false,true,false,false,true,true,false,false,false,false,false,8,false,false,true,N
+opossum,true,false,false,true,false,false,true,true,true,true,false,false,4,true,false,false,P
+oryx,true,false,false,true,false,false,false,true,true,true,false,false,4,true,false,true,P
+ostrich,false,true,true,false,false,false,false,false,true,true,false,false,2,true,false,true,N
+parakeet,false,true,true,false,true,false,false,false,true,true,false,false,2,true,true,false,N
+penguin,false,true,true,false,false,true,true,false,true,true,false,false,2,true,false,true,N
+pheasant,false,true,true,false,true,false,false,false,true,true,false,false,2,true,false,false,N
+pike,false,false,true,false,false,true,true,true,true,false,false,true,0,true,false,true,N
+piranha,false,false,true,false,false,true,true,true,true,false,false,true,0,true,false,false,N
+pitviper,false,false,true,false,false,false,true,true,true,true,true,false,0,true,false,false,N
+platypus,true,false,true,true,false,true,true,false,true,true,false,false,4,true,false,true,P
+polecat,true,false,false,true,false,false,true,true,true,true,false,false,4,true,false,true,P
+pony,true,false,false,true,false,false,false,true,true,true,false,false,4,true,true,true,P
+porpoise,false,false,false,true,false,true,true,true,true,true,false,true,0,true,false,true,P
+puma,true,false,false,true,false,false,true,true,true,true,false,false,4,true,false,true,P
+pussycat,true,false,false,true,false,false,true,true,true,true,false,false,4,true,true,true,P
+raccoon,true,false,false,true,false,false,true,true,true,true,false,false,4,true,false,true,P
+reindeer,true,false,false,true,false,false,false,true,true,true,false,false,4,true,true,true,P
+rhea,false,true,true,false,false,false,true,false,true,true,false,false,2,true,false,true,N
+scorpion,false,false,false,false,false,false,true,false,false,true,true,false,8,true,false,false,N
+seahorse,false,false,true,false,false,true,false,true,true,false,false,true,0,true,false,false,N
+seal,true,false,false,true,false,true,true,true,true,true,false,true,0,false,false,true,P
+sealion,true,false,false,true,false,true,true,true,true,true,false,true,2,true,false,true,P
+seasnake,false,false,false,false,false,true,true,true,true,false,true,false,0,true,false,false,N
+seawasp,false,false,true,false,false,true,true,false,false,false,true,false,0,false,false,false,N
+skimmer,false,true,true,false,true,true,true,false,true,true,false,false,2,true,false,false,N
+skua,false,true,true,false,true,true,true,false,true,true,false,false,2,true,false,false,N
+slowworm,false,false,true,false,false,false,true,true,true,true,false,false,0,true,false,false,N
+slug,false,false,true,false,false,false,false,false,false,true,false,false,0,false,false,false,N
+sole,false,false,true,false,false,true,false,true,true,false,false,true,0,true,false,false,N
+sparrow,false,true,true,false,true,false,false,false,true,true,false,false,2,true,false,false,N
+squirrel,true,false,false,true,false,false,false,true,true,true,false,false,2,true,false,false,P
+starfish,false,false,true,false,false,true,true,false,false,false,false,false,5,false,false,false,N
+stingray,false,false,true,false,false,true,true,true,true,false,true,true,0,true,false,true,N
+swan,false,true,true,false,true,true,false,false,true,true,false,false,2,true,false,true,N
+termite,false,false,true,false,false,false,false,false,false,true,false,false,6,false,false,false,N
+toad,false,false,true,false,false,true,false,true,true,true,false,false,4,false,false,false,N
+tortoise,false,false,true,false,false,false,false,false,true,true,false,false,4,true,false,true,N
+tuatara,false,false,true,false,false,false,true,true,true,true,false,false,4,true,false,false,N
+tuna,false,false,true,false,false,true,true,true,true,false,false,true,0,true,false,true,N
+vampire,true,false,false,true,true,false,false,true,true,true,false,false,2,true,false,false,P
+vole,true,false,false,true,false,false,false,true,true,true,false,false,4,true,false,false,P
+vulture,false,true,true,false,true,false,true,false,true,true,false,false,2,true,false,true,N
+wallaby,true,false,false,true,false,false,false,true,true,true,false,false,2,true,false,true,P
+wasp,true,false,true,false,true,false,false,false,false,true,true,false,6,false,false,false,N
+wolf,true,false,false,true,false,false,true,true,true,true,false,false,4,true,false,true,P
+worm,false,false,true,false,false,false,false,false,false,true,false,false,0,false,false,false,N
+wren,false,true,true,false,true,false,false,false,true,true,false,false,2,true,false,false,N
