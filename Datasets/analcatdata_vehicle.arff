@@ -1,0 +1,57 @@
+@relation analcatdata-vehicle
+
+@attribute Alcohol-related {No,Yes}
+@attribute Gender {Female,Male}
+@attribute Type {Passenger,Pedestrian/bicyclist}
+@attribute Age {0-2,12-13,14-15,3-5,6-8,9-11}
+@attribute binaryClass {P,N}
+
+@data
+No,Male,Passenger,0-2,N
+Yes,Male,Passenger,0-2,P
+No,Female,Passenger,0-2,N
+Yes,Female,Passenger,0-2,P
+No,Male,Pedestrian/bicyclist,0-2,P
+Yes,Male,Pedestrian/bicyclist,0-2,P
+No,Female,Pedestrian/bicyclist,0-2,P
+Yes,Female,Pedestrian/bicyclist,0-2,P
+No,Male,Passenger,3-5,N
+Yes,Male,Passenger,3-5,P
+No,Female,Passenger,3-5,N
+Yes,Female,Passenger,3-5,P
+No,Male,Pedestrian/bicyclist,3-5,N
+Yes,Male,Pedestrian/bicyclist,3-5,P
+No,Female,Pedestrian/bicyclist,3-5,N
+Yes,Female,Pedestrian/bicyclist,3-5,P
+No,Male,Passenger,6-8,N
+Yes,Male,Passenger,6-8,P
+No,Female,Passenger,6-8,N
+Yes,Female,Passenger,6-8,P
+No,Male,Pedestrian/bicyclist,6-8,N
+Yes,Male,Pedestrian/bicyclist,6-8,P
+No,Female,Pedestrian/bicyclist,6-8,N
+Yes,Female,Pedestrian/bicyclist,6-8,P
+No,Male,Passenger,9-11,N
+Yes,Male,Passenger,9-11,P
+No,Female,Passenger,9-11,N
+Yes,Female,Passenger,9-11,P
+No,Male,Pedestrian/bicyclist,9-11,N
+Yes,Male,Pedestrian/bicyclist,9-11,P
+No,Female,Pedestrian/bicyclist,9-11,P
+Yes,Female,Pedestrian/bicyclist,9-11,P
+No,Male,Passenger,12-13,N
+Yes,Male,Passenger,12-13,P
+No,Female,Passenger,12-13,N
+Yes,Female,Passenger,12-13,P
+No,Male,Pedestrian/bicyclist,12-13,N
+Yes,Male,Pedestrian/bicyclist,12-13,P
+No,Female,Pedestrian/bicyclist,12-13,P
+Yes,Female,Pedestrian/bicyclist,12-13,P
+No,Male,Passenger,14-15,N
+Yes,Male,Passenger,14-15,N
+No,Female,Passenger,14-15,N
+Yes,Female,Passenger,14-15,N
+No,Male,Pedestrian/bicyclist,14-15,N
+Yes,Male,Pedestrian/bicyclist,14-15,P
+No,Female,Pedestrian/bicyclist,14-15,P
+Yes,Female,Pedestrian/bicyclist,14-15,P

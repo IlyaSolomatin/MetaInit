@@ -1,0 +1,47 @@
+@relation chscase-adopt
+
+@attribute col_1 {Africa,Belize,Bolivia,Brazil,Cambodia,Canada,Chile,China,Colombia,Costa_Rica,Dominican_Republic,Ecuador,El_Salvador,Greece,Guatamala,Haiti,Honduras,Hong_Kong,Hungary,India,Jamaica,Japan,Lebanon,Mexico,Nicaragua,Oceania,Pakistan,Panama,Paraguay,Peru,Phillipines,Poland,Portugal,Romania,South_Korea,Taiwan,Thailand,Turkey,Vietnam}
+@attribute col_2 numeric
+@attribute col_3 numeric
+@attribute binaryClass {P,N}
+
+@data
+Africa,28,41,P
+Belize,6,4,P
+Bolivia,21,51,P
+Brazil,164,178,P
+Cambodia,0,59,P
+Canada,12,12,P
+Chile,252,263,N
+China,52,62,N
+Colombia,699,527,N
+Costa_Rica,73,55,P
+Dominican_Republic,54,50,P
+Ecuador,41,11,P
+El_Salvador,88,122,P
+Greece,10,5,N
+Guatamala,209,324,N
+Haiti,41,52,P
+Honduras,161,244,N
+Hong_Kong,49,40,P
+Hungary,6,25,P
+India,698,448,N
+Jamaica,30,39,P
+Japan,69,83,P
+Lebanon,23,17,P
+Mexico,123,106,P
+Nicaragua,5,11,P
+Oceania,15,16,P
+Pakistan,10,9,P
+Panama,23,10,P
+Paraguay,300,177,N
+Peru,142,722,N
+Phillipines,476,417,N
+Poland,51,95,P
+Portugal,17,10,N
+Romania,0,2552,P
+South_Korea,4942,1817,N
+Taiwan,56,55,P
+Thailand,75,127,P
+Turkey,11,6,P
+Vietnam,1,17,P
