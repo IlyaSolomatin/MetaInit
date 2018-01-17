@@ -1,5 +1,6 @@
 from hyperopt import hp
 
+#All files that are downloaded from OpenML
 ALL_FILES = ['abalone.arff', 'acute-inflammations.arff', 'ada_agnostic.arff',
        'ada_prior.arff', 'aids.arff', 'ailerons.arff',
        'analcatdata_apnea1.arff', 'analcatdata_apnea2.arff',
@@ -168,6 +169,7 @@ ALL_FILES = ['abalone.arff', 'acute-inflammations.arff', 'ada_agnostic.arff',
        'wind_correlations.arff', 'wine.arff', 'wisconsin.arff',
        'witmer_census_1980.arff', 'xd6.arff', 'yeast_ml8.arff', 'zoo.arff']
 
+#Files which were successfully computed in SVM experiments
 COMPUTED_FILES = ['abalone.txt', 'acute-inflammations.txt', 'ada_agnostic.txt',
        'ada_prior.txt', 'aids.txt', 'ailerons.txt',
        'analcatdata_apnea1.txt', 'analcatdata_apnea2.txt',
@@ -322,6 +324,7 @@ COMPUTED_FILES = ['abalone.txt', 'acute-inflammations.txt', 'ada_agnostic.txt',
        'wine.txt', 'wisconsin.txt', 'witmer_census_1980.txt', 'xd6.txt',
        'yeast_ml8.txt', 'zoo.txt']
 
+#Files which were successfully computed in CatBoost experiments
 COMPUTED_FILES_CAT = ['abalone.txt', 'acute-inflammations.txt', 'ada_agnostic.txt',
        'ada_prior.txt', 'aids.txt', 'ailerons.txt',
        'analcatdata_apnea1.txt', 'analcatdata_apnea2.txt',
@@ -443,19 +446,21 @@ COMPUTED_FILES_CAT = ['abalone.txt', 'acute-inflammations.txt', 'ada_agnostic.tx
        'steel-plates-fault.txt', 'stock.txt', 'strikes.txt',
        'sylva_agnostic.txt', 'sylva_prior.txt', 'tae.txt']
 
+#Function that returns the list of files for which metafeatures are known AND which were successfully computed with SVM
 def Get_FILES(ALL_FILES=ALL_FILES,COMPUTED_FILES=COMPUTED_FILES):
        META_FILES = [ALL_FILES[i] for i in range(len(ALL_FILES)) if
                      i not in [91, 117, 137, 144, 328, 414, 423, 279, 129, 451]]
 
        return [i[:-5] for i in ALL_FILES if i[:-5]+'.txt' in COMPUTED_FILES and i in META_FILES]
 
-
+#Function that returns the list of files for which metafeatures are known AND which were successfully computed with CatBoost
 def Get_FILES_Cat(ALL_FILES=ALL_FILES, COMPUTED_FILES_CAT=COMPUTED_FILES_CAT):
     META_FILES = [ALL_FILES[i] for i in range(len(ALL_FILES)) if
                   i not in [91, 117, 137, 144, 328, 414, 423, 279, 129, 451]]
 
     return [i[:-5] for i in ALL_FILES if i[:-5] + '.txt' in COMPUTED_FILES_CAT and i in META_FILES]
 
+#Space of hyperparameters for XGB optimization via hyperopt
 space = {
     'learning_rate': hp.loguniform('learning_rate', -6., -1.),
     'n_estimators': hp.choice('n_estimators', range(20, 600)),
