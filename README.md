@@ -16,6 +16,14 @@ Now we have to calculate a metafeature representation of each dataset. This can 
 
 Now we have to run some ML algorithm at all these datasets on some grid of hyperparameters. Accuracies of an ML algorithm are calculated with 10-fold CV and written in corresponding .txt files.
 
-We can make these runs with **SVMlinearRBF.py**, **SVMgammaC.py** or **CatboostOnGrid.py**. You already can see the results of these runs in corresponding folders. The first experiment runs SVM with one hyperparameter of two values: use LinearSVM with default settings *or* SVM with RBF kernel and default settings. The second one runs SVM with RBF kernel with two hyperparameters C and gamma of 399 values overall. The third one adjusts the maximal depth of the tree for Catboost choosing from 11 values.
+We can make these runs with **SVMlinearRBF.py**, **SVMgammaC.py** or **CatboostOnGrid.py**. You already can see the results of these runs in corresponding folders. 
+- The first experiment runs SVM with one hyperparameter of two values: use LinearSVM with default settings *or* SVM with RBF kernel and default settings. 
+- The second one runs SVM with RBF kernel with two hyperparameters C and gamma of 399 values overall. 
+- The third one adjusts the maximal depth of the tree for Catboost choosing from 11 values.
 
 **Note**: Not all datasets were successfully utilized by these runs by different reasons. That's why after all we will work only with files which: have successfully extracted metafeatures *and* were successfully evaluated by an ML algorith on the whole grid of hyperparameters. Intersection of these two sets gives us 444 datasets. 
+
+After we get the results in format "Grid of hyperparameters: ML algorithm performance" for each dataset, we can run a strategy of hyperparameter selection on this. We can make this experiments with **BestClosest.py**, **Optimized.py** and **XGBdefault.py**.
+- The first strategy suggests the hyperparameters configuration which was the best on the dataset, which is the closest to the given one in metafeature space by Euclidean distance.
+- The second strategy suggests hyperparameters configuration which maximizes the average performance of an ML algorithm on all the datasets that we have except for the given one.
+- The third one fits a surrogate such as XGBoost with default settings on (X,Y) where X is (Metafeatures of the dataset,Hyperparameter configuration) and Y is the quality of an ML algorithm on a dataset with such metafeatures and hyperparameters. We fit it on all the datasets and configurations except for the given dataset. After that we are able to predict the performance of an ML algorithm on a given dataset for the whole grid of hyperparameters using its metafeature description. Taking the maximum of predicted performance we get the best recommended configuration.
