@@ -292,7 +292,7 @@ files = np.array([f for f in listdir('./Datasets/') if isfile(join('./Datasets/'
 A = []
 for i in range(461):
     #We had some problems with datasets with these indices so we just avoid them
-    if i not in [91,117,137,144,328,414,423,129,279,451]:
+    if i not in [91,117,137,144,328,414,423,129]:
         a, _ = Get_descriptive_vector('./Datasets/'+files[i])
         print(i)
         A += [a]
