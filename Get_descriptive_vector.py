@@ -70,17 +70,17 @@ def Get_descriptive_vector(file):
         data['attributes'].append(data['attributes'][23])
         del data['attributes'][23]
         data['data'] = np.hstack((np.array(data['data'])[:, list(range(23)) + list(range(24, len(data['data'][0])))],
-                                  np.array(data['data'])[:, 1].reshape(-1, 1))).tolist()
+                                  np.array(data['data'])[:, 23].reshape(-1, 1))).tolist()
     if file == 'irish.arff':
         data['attributes'].append(data['attributes'][3])
         del data['attributes'][3]
         data['data'] = np.hstack((np.array(data['data'])[:, list(range(3)) + list(range(4, len(data['data'][0])))],
-                                  np.array(data['data'])[:, 1].reshape(-1, 1))).tolist()
+                                  np.array(data['data'])[:, 3].reshape(-1, 1))).tolist()
     if file == 'wholesale-customers.arff':
         data['attributes'].append(data['attributes'][7])
         del data['attributes'][7]
         data['data'] = np.hstack((np.array(data['data'])[:, list(range(7)) + list(range(8, len(data['data'][0])))],
-                                  np.array(data['data'])[:, 1].reshape(-1, 1))).tolist()
+                                  np.array(data['data'])[:, 7].reshape(-1, 1))).tolist()
 
     start_time = timeit.default_timer()
     #Number of instances
