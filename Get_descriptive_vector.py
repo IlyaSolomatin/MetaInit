@@ -12,6 +12,7 @@ import timeit
 import pickle
 from os import listdir
 from os.path import isfile, join
+from config import ALL_FILES
 
 #While extracting metafeatures, we follow the paper
 #http://aad.informatik.uni-freiburg.de/papers/15-AAAI-MI-SMBO.pdf
@@ -287,14 +288,17 @@ def Get_descriptive_vector(file):
     return V, times
 
 #Prepare the list of all datasets
-files = np.array([f for f in listdir('./Datasets/') if isfile(join('./Datasets/', f)) and f[-5:] == '.arff'])
+files = ALL_FILES
 #A is a list of all metafeature descriptions of our datasets
 A = []
-for i in range(461):
-    #We had some problems with datasets with these indices so we just avoid them
-    if i not in [91,117,137,144,328,414,423,129]:
-        a, _ = Get_descriptive_vector('./Datasets/'+files[i])
-        print(i)
-        A += [a]
+#T is a list of all time-vectors.
+#Time-vector is a vector which consists of time durations of extractions of different blocks of metafeatures per dataset
+T = []
+for i in range(len(files)):
+    a, t = Get_descriptive_vector('./Datasets/'+files[i])
+    print(i)
+    A += [a]
+    T += [t]
 
-# pickle.dump(A, open( "A2.p", "wb" ) )
+# pickle.dump(A, open( "descriptive_vectors.p", "wb" ) )
+# pickle.dump(T, open( "descriptive_vector_times.p", "wb" ) )

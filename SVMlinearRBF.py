@@ -12,7 +12,7 @@ FILES = ALL_FILES
 
 for file in FILES:
     f = open(file[:-5]+'.txt','w')
-    data = arff.load(open('./data/'+file, 'r'))
+    data = arff.load(open('./Datasets/'+file, 'r'))
        
     #This ugly block is here because in some datasets downloaded from OpenML the target column is not the last one.
     #It forces to write a lot of exceptions like these to move the target column to the last place in order to
