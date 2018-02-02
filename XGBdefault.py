@@ -5,23 +5,20 @@ import xgboost as xgb
 
 FILES = ALL_FILES
 
-#That is the size of the grid of hyperparameters (number of all evaluated combinations of hyperparameters)
-#399 for SVMgammaC, 2 for SVMlinearRBF, 11 for Catboost
-gridsize = 399
-
 #First we should normalize the performance qualities for each dataset
 #Pay attention to the directory you read the files from
 all_files = []
 for file in FILES:
-    all_files.append(np.loadtxt('./SVMgammaC/'+file[:-5]+'.txt',delimiter=', '))
+    all_files.append(np.loadtxt('./SVMlinearRBF/'+file[:-5]+'.txt',delimiter=', '))
     #Change the line above to the line below if you work with files which include
     #precomputed time of execution (like XGBonGrid) in the last column
-    #all_files.append(np.loadtxt('./XGBonGrid/' + file[:-5] + '.txt', delimiter=', ')[:,:-1])
+    # all_files.append(np.loadtxt('./XGBonGrid/' + file[:-5] + '.txt', delimiter=', ')[:,:-1])
     if np.max(all_files[-1][:,-1]) != np.min(all_files[-1][:,-1]):
         all_files[-1][:,-1] = (all_files[-1][:,-1] - np.min(all_files[-1][:,-1]))  / (np.max(all_files[-1][:,-1])-np.min(all_files[-1][:,-1]))
     else:
         all_files[-1][:,-1] = np.ones_like(all_files[-1][:,-1])
 all_files = np.array(all_files)
+gridsize = len(all_files[0])
 
 #Now we load the matrix with metafeature vectors for all files
 A = np.array(pickle.load(open("descriptive_vectors.p","rb")))
@@ -50,4 +47,4 @@ for test_file in range(len(FILES)):
     best_config = np.argmax(prediction)
     xgb_qualities.append(1-all_files[test_file,best_config,-1])
 
-print(np.mean(xgb_qualities))
+print(np.round(np.mean(xgb_qualities),decimals=3),"±",np.round(np.std(xgb_qualities),decimals=3))

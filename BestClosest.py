@@ -10,10 +10,10 @@ best_closest_qualities = []
 #Pay attention to the directory you read the files from
 all_files = []
 for file in FILES:
-    all_files.append(np.loadtxt('./SVMgammaC/'+file[:-5]+'.txt',delimiter=', '))
+    all_files.append(np.loadtxt('./SVMlinearRBF/'+file[:-5]+'.txt',delimiter=', '))
     #Change the line above to the line below if you work with files which include
     #precomputed time of execution (like XGBonGrid) in the last column
-    #all_files.append(np.loadtxt('./XGBonGrid/' + file[:-5] + '.txt', delimiter=', ')[:,:-1])
+    # all_files.append(np.loadtxt('./XGBonGrid/' + file[:-5] + '.txt', delimiter=', ')[:,:-1])
     if np.max(all_files[-1][:,-1]) != np.min(all_files[-1][:,-1]):
         all_files[-1][:,-1] = (all_files[-1][:,-1] - np.min(all_files[-1][:,-1]))  / (np.max(all_files[-1][:,-1])-np.min(all_files[-1][:,-1]))
     else:
@@ -33,4 +33,5 @@ for test_file in range(len(FILES)):
                 closest_distance = dist
                 closest_dataset = file
     best_closest_qualities.append(1-all_files[test_file,np.argmax(all_files[closest_dataset,:,-1]),-1])
-print(np.mean(best_closest_qualities))
+
+print(np.round(np.mean(best_closest_qualities),decimals=3),"±",np.round(np.std(best_closest_qualities),decimals=3))
