@@ -47,7 +47,7 @@ def Get_descriptive_vector(file):
     V = []
     times = []
 
-    f = open(file, 'r')
+    f = open('./Datasets/'+file, 'r')
     data = arff.load(f)
     f.close()
     #This ugly block is here because in some datasets downloaded from OpenML the target column is not the last one.
@@ -62,7 +62,8 @@ def Get_descriptive_vector(file):
         data['data'] = np.hstack((np.array(data['data'])[:, 1:], np.array(data['data'])[:, 0].reshape(-1, 1))).tolist()
     if file == 'analcatdata_whale.arff':
         data['data'] = data['data'][:-5]
-    if file in ['analcatdata_japansolvent.arff','lungcancer_GSE31210.arff','lupus.arff',]:
+    if file in ['analcatdata_japansolvent.arff','lungcancer_GSE31210.arff','lupus.arff']:
+        print(file)
         data['attributes'].append(data['attributes'][1])
         del data['attributes'][1]
         data['data'] = np.hstack((np.array(data['data'])[:, [0] + list(range(2, len(data['data'][0])))],
@@ -294,8 +295,9 @@ A = []
 #T is a list of all time-vectors.
 #Time-vector is a vector which consists of time durations of extractions of different blocks of metafeatures per dataset
 T = []
+print(len(files))
 for i in range(len(files)):
-    a, t = Get_descriptive_vector('./Datasets/'+files[i])
+    a, t = Get_descriptive_vector(files[i])
     print(i)
     A += [a]
     T += [t]
